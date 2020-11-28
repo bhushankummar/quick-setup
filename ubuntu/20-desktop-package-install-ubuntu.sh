@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-echo -e "\e[01;31mREDRUM\e[0m"
 red=`tput setaf 1`
 reset=`tput sgr0`
 green=`tput setaf 2`
