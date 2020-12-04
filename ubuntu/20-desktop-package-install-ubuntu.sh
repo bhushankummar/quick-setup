@@ -27,7 +27,7 @@ sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
 
 # Install required additional dependencies
-sudo apt-get build-essential -y
+sudo apt-get install build-essential -y
 sudo apt-get install curl -y
 sudo apt-get install libssl-dev -y
 sudo apt-get install git -q -y
