@@ -66,9 +66,9 @@ sudo snap install slack --classic
 sudo snap install skype --classic
 
 # Install Smartgit
-sudo add-apt-repository ppa:eugenesan/ppa -y
-sudo apt-get update -q -y
-sudo apt-get install smartgit -y
+# sudo add-apt-repository ppa:eugenesan/ppa -y
+# sudo apt-get update -q -y
+# sudo apt-get install smartgit -y
 
 # Install Postman
 sudo snap install postman
@@ -77,7 +77,7 @@ sudo snap install postman
 sudo snap install code --classic
 
 # Install Visual Code Extension
-sudo code --install-extension monokai.theme-monokai-pro-vscod --user-data-dir
+sudo code --install-extension monokai.theme-monokai-pro-vscode --user-data-dir
 sudo code --install-extension christian-kohler.npm-intellisense --user-data-dir
 sudo code --install-extension christian-kohler.path-intellisense --user-data-dir
 sudo code --install-extension msjsdiag.debugger-for-chrome --user-data-dir
@@ -100,6 +100,7 @@ sudo code --install-extension tomoki1207.pdf --user-data-dir
 
 # Set Visual Code Preference
 sudo cp ../.vscode/settings.json $HOME/.config/Code/User/settings.json
+sudo cp ../.vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
 
 # Install Wallpaper Changer
 sudo add-apt-repository ppa:peterlevi/ppa -y

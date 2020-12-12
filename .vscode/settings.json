@@ -46,8 +46,20 @@
   "typescript.preferences.quoteStyle": "single",
   "files.trimTrailingWhitespace": true,
   "workbench.list.openMode": "doubleClick",
-  "cSpell.words": ["nestjs"],
-  "editor.rulers": [120],
+  "cSpell.words": [
+    "nestjs"
+  ],
+  "editor.rulers": [
+    120
+  ],
   "editor.wordWrapColumn": 120,
-  "editor.wrappingStrategy": "advanced"
+  "editor.wrappingStrategy": "advanced",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true,
+    "source.fixAll": true,
+  },
+  "eslint.validate": [
+    "typescript"
+  ]
 }
