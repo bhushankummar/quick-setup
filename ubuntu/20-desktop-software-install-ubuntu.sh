@@ -98,6 +98,7 @@ sudo code --install-extension codezombiech.gitignore --user-data-dir
 sudo code --install-extension lacroixdavid1.vscode-format-context-menu --user-data-dir
 sudo code --install-extension mhutchie.git-graph --user-data-dir
 sudo code --install-extension tomoki1207.pdf --user-data-dir
+sudo code --install-extension ms-vscode-remote.remote-containers --user-data-dir
 # sudo code --install-extension Shan.code-settings-sync --user-data-dir
 
 # Set Visual Code Preference
