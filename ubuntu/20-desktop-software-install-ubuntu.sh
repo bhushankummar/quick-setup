@@ -39,16 +39,16 @@ sudo pip install virtualenvwrapper
 
 # -------------------- Desktop Installation Start -------------------- #
 # Speed Monitor
-sudo apt-add-repository ppa:fixnix/netspeed -y
-sudo apt-get update -q -y
-sudo apt-get install indicator-netspeed-unity -y
+# sudo apt-add-repository ppa:fixnix/netspeed -y
+# sudo apt-get update -q -y
+# sudo apt-get install indicator-netspeed-unity -y
 
 # Install Anydesk
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
-sudo echo "deb http://deb-archive.anydesk.com/amd64/ /" > /etc/apt/sources.list.d/anydesk-archive.list
+echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 sudo apt update -y
 sudo apt install anydesk -y
-echo password@7 | sudo anydesk --set-password
+echo hello@world | sudo anydesk --set-password
 
 # Install Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -67,8 +67,10 @@ sudo snap install skype --classic
 
 # Install Smartgit
 # sudo add-apt-repository ppa:eugenesan/ppa -y
-# sudo apt-get update -q -y
+# sudo apt-get update -y
 # sudo apt-get install smartgit -y
+wget https://www.syntevo.com/downloads/smartgit/smartgit-20_2_1.deb -y
+sudo dpkg -i smartgit-20_2_1.deb -y
 
 # Install Postman
 sudo snap install postman
@@ -81,7 +83,7 @@ sudo code --install-extension monokai.theme-monokai-pro-vscode --user-data-dir
 sudo code --install-extension christian-kohler.npm-intellisense --user-data-dir
 sudo code --install-extension christian-kohler.path-intellisense --user-data-dir
 sudo code --install-extension msjsdiag.debugger-for-chrome --user-data-dir
-sudo code --install-extension EditorConfig.EditorConfig --user-data-dir
+# sudo code --install-extension EditorConfig.EditorConfig --user-data-dir
 sudo code --install-extension michelemelluso.code-beautifier --user-data-dir
 sudo code --install-extension ms-vscode.vscode-typescript-tslint-plugin --user-data-dir
 sudo code --install-extension ritwickdey.LiveServer --user-data-dir
