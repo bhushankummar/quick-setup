@@ -11,7 +11,7 @@ mv ./minikube /usr/local/bin/minikube
 ```
 adduser developer
 # password@7
-usermod -aG sudo developer
+usermod -aG sudo dev
 ```
 
 ### Login to the newly created User
@@ -39,8 +39,7 @@ docker ps
 
 #### Remove Minicube
 ```
-docker rm -f kind-control-plane
-rm /usr/local/bin/kind
+rm /usr/local/bin/minikube
 ```
 
 #### References

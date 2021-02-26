@@ -25,3 +25,6 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 kubectl version --client
 ```
+
+### Remove 
+rm /usr/local/bin/kubectl
