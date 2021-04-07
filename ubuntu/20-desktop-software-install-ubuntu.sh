@@ -65,13 +65,6 @@ sudo snap install slack --classic
 # Install Skype
 sudo snap install skype --classic
 
-# Install Smartgit
-# sudo add-apt-repository ppa:eugenesan/ppa -y
-# sudo apt-get update -y
-# sudo apt-get install smartgit -y
-wget https://www.syntevo.com/downloads/smartgit/smartgit-20_2_4.deb
-sudo dpkg -i smartgit-20_2_4.deb -y
-
 # Install Postman
 sudo snap install postman
 
@@ -105,6 +98,13 @@ sudo code --install-extension redhat.vscode-yaml --user-data-dir
 # Set Visual Code Preference
 sudo cp ../.vscode/settings.json $HOME/.config/Code/User/settings.json
 sudo cp ../.vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
+
+# Install Smartgit
+# sudo add-apt-repository ppa:eugenesan/ppa -y
+# sudo apt-get update -y
+# sudo apt-get install smartgit -y
+wget https://www.syntevo.com/downloads/smartgit/smartgit-20_2_4.deb
+sudo dpkg -i smartgit-20_2_4.deb -y
 
 # Install Wallpaper Changer
 sudo add-apt-repository ppa:peterlevi/ppa -y
