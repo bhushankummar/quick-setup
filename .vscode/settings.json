@@ -17,10 +17,10 @@
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "window.openFilesInNewWindow": "on",
   "window.openFoldersInNewWindow": "on",
-  "window.zoomLevel": 1.2,
+  "window.zoomLevel": 1,
   "explorer.confirmDelete": false,
   "editor.minimap.enabled": false,
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "vs-seti",
   "liveServer.settings.donotVerifyTags": true,
   "vsicons.projectDetection.autoReload": true,
   "vsicons.dontShowNewVersionMessage": true,
@@ -45,7 +45,7 @@
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "files.trimTrailingWhitespace": true,
-  "workbench.list.openMode": "doubleClick",
+  "workbench.list.openMode": "singleClick",
   "cSpell.words": [
     "nestjs"
   ],
@@ -61,5 +61,14 @@
   },
   "eslint.validate": [
     "typescript"
-  ]
+  ],
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "explorer.sortOrder": "type",
+  "editor.cursorBlinking": "smooth",
+  "files.trimFinalNewlines": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.settings.editor": "json",
+  "explorer.openEditors.visible": 0
 }
