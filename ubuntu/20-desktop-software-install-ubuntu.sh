@@ -59,6 +59,9 @@ sudo apt-get install google-chrome-stable -y
 # Install snapd
 sudo apt install snapd -y
 
+# Install RocketChat
+sudo snap install rocketchat-desktop --classic
+
 # Install Slack
 sudo snap install slack --classic
 
