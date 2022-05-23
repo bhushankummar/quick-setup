@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-red=`tput setaf 1`
-reset=`tput sgr0`
-green=`tput setaf 2`
+red=$(tput setaf 1)
+reset=$(tput sgr0)
+green=$(tput setaf 2)
 
 echo "Thank you, we are installting for the Server"
 
 echo "${green}"
-start=`date +%s`
+start=$(date +%s)
 echo "Start Time ${start}"
 echo "${reset}"
 
@@ -50,7 +50,7 @@ sudo pip install virtualenvwrapper
 
 # Install Docker CE
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y
 sudo apt-get update -q -y
 sudo apt-get install docker-ce -y
 
@@ -63,22 +63,18 @@ docker-compose --version
 # sudo chown $USER:$USER /var/run/docker.sock
 sudo usermod -a -G docker "$USER"
 
-# Install Lazydocker
-# curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
-
 # Install NVM
-curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Install Node
-export ENV NODE_VERSION=10.16.3
+export ENV NODE_VERSION=14.19.3
 nvm install $NODE_VERSION
 
 # Install Other Packages
 npm install nodemon -g
 npm install typescript -g
-npm install ts-node -g
 
 # Install Angular CLI
 export NG_CLI_ANALYTICS=false
@@ -102,9 +98,9 @@ sudo apt autoremove -y
 sudo apt-get autoclean -y
 
 echo "${green}"
-end=`date +%s`
+end=$(date +%s)
 # echo "End Time ${end}"
-seconds=$((end-start))
+seconds=$((end - start))
 echo "Installation has been Completed !"
 echo "Total Time Taken In Seconds ${seconds}"
 eval "echo $(date -ud "@$seconds" +'%H hours %M minutes %S seconds')"
