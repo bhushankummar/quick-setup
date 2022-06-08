@@ -19,7 +19,7 @@ CURRENT_USER=$USER
 echo "$CURRENT_USER"
 
 # Enable multiverse repository
-sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
+# sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
 
 # Upgrade to Latest Update
 sudo apt-get update -q -y
