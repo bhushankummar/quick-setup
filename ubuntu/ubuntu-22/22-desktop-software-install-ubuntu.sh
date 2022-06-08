@@ -106,8 +106,8 @@ sudo cp ../.vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
 # sudo add-apt-repository ppa:eugenesan/ppa -y
 # sudo apt-get update -y
 # sudo apt-get install smartgit -y
-wget https://www.syntevo.com/downloads/smartgit/smartgit-20_2_4.deb
-sudo dpkg -i smartgit-20_2_4.deb -y
+wget https://www.syntevo.com/downloads/smartgit/smartgit-21_2_3.deb
+sudo dpkg -i smartgit-21_2_3.deb -y
 
 # Install Wallpaper Changer
 sudo add-apt-repository ppa:peterlevi/ppa -y

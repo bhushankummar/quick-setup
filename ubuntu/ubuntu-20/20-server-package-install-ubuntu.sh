@@ -72,13 +72,13 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Install Node
-export ENV NODE_VERSION=10.16.3
+export ENV NODE_VERSION=14.19.3
 nvm install $NODE_VERSION
 
 # Install Other Packages
 npm install nodemon -g
 npm install typescript -g
-npm install ts-node -g
+# npm install ts-node -g
 
 # Install Angular CLI
 export NG_CLI_ANALYTICS=false
