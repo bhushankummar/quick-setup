@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-red=`tput setaf 1`
-reset=`tput sgr0`
-green=`tput setaf 2`
+red=$(tput setaf 1)
+reset=$(tput sgr0)
+green=$(tput setaf 2)
 
 echo "Thank you, we are installting for the Server"
 
 echo "${green}"
-start=`date +%s`
+start=$(date +%s)
 echo "Start Time ${start}"
 echo "${reset}"
 
@@ -34,8 +34,8 @@ sudo apt-get install git -q -y
 
 # Install Python
 sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
-sudo apt install software-properties-common apt-transport-https wget -y
-sudo pip install virtualenvwrapper
+# sudo apt install software-properties-common apt-transport-https wget -y
+# sudo pip install virtualenvwrapper
 
 # Install Samba (Still you have to update config files.)
 # sudo apt-get install samba -y
@@ -102,9 +102,9 @@ sudo apt autoremove -y
 sudo apt-get autoclean -y
 
 echo "${green}"
-end=`date +%s`
+end=$(date +%s)
 # echo "End Time ${end}"
-seconds=$((end-start))
+seconds=$((end - start))
 echo "Installation has been Completed !"
 echo "Total Time Taken In Seconds ${seconds}"
 eval "echo $(date -ud "@$seconds" +'%H hours %M minutes %S seconds')"
