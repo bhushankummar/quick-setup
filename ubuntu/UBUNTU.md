@@ -3,44 +3,28 @@
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install build-essential -y
-
 sudo apt-get install gksu -y
-
 sudo apt-get install git -y
-
-
 
 **NA-UTIL**
 
 sudo apt-get install nautilus-open-terminal -y
 
-
-
 **System Monitor (LAN &amp; CPU) (Recommended)**
 
 sudo apt-get install indicator-multiload -y
 
-
-
 **WLAN-LAN Speed Monitor**
 
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y
-
 sudo apt-get update -y
-
 sudo apt-get install indicator-netspeed -y
-
-
 
 **Wallpaper Installation**
 
 sudo add-apt-repository ppa:peterlevi/ppa
-
 sudo apt-get update
-
 sudo apt-get install variety variety-slideshow
-
-
 
 **Install Docker**
 sudo apt-get update -y
@@ -89,8 +73,6 @@ sudo apt-get install oracle-java8-installer -y
 
 192.168.1.XXX
 
-
-
 **Mount Partition Automatically**
 
 Ref :  [https://askubuntu.com/questions/164926/how-to-make-partitions-mount-at-startup](https://askubuntu.com/questions/164926/how-to-make-partitions-mount-at-startup)
@@ -110,8 +92,6 @@ sudo gksu gedit /etc/fstab
 # Add New Line
 
 UUID=&quot;88f71a87-245a-4e1e-8fcf-f3c33a8a2b5d&quot; /media/drive1 ext4
-
-
 
 **Install Node.js with Node Version Manager**
 

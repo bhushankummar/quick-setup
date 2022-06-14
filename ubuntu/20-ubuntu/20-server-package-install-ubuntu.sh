@@ -19,7 +19,7 @@ CURRENT_USER=$USER
 echo "$CURRENT_USER"
 
 # Enable multiverse repository
-sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
+# sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
 
 # Upgrade to Latest Update
 sudo apt-get update -q -y
@@ -63,8 +63,11 @@ docker-compose --version
 # sudo chown $USER:$USER /var/run/docker.sock
 sudo usermod -a -G docker "$USER"
 
+# Install Lazydocker
+# curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+
 # Install NVM
-curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
+curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
@@ -75,6 +78,7 @@ nvm install $NODE_VERSION
 # Install Other Packages
 npm install nodemon -g
 npm install typescript -g
+# npm install ts-node -g
 
 # Install Angular CLI
 export NG_CLI_ANALYTICS=false
