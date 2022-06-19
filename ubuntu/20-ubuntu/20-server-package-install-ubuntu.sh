@@ -43,7 +43,7 @@ sudo snap install --classic certbot
 sudo apt install python3-certbot-nginx -y
 
 # Install Python
-sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
+# sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
 # sudo apt install software-properties-common apt-transport-https wget -y
 # sudo pip install virtualenvwrapper
 
@@ -92,7 +92,7 @@ npm install typescript -g
 
 # Install Angular CLI
 export NG_CLI_ANALYTICS=false
-npm install -g @angular/cli@latest --force
+echo "Y" | npm install -g @angular/cli@latest --force
 ng analytics off
 
 # Get SUDO access without password
