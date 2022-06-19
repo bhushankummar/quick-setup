@@ -92,8 +92,8 @@ npm install typescript -g
 
 # Install Angular CLI
 export NG_CLI_ANALYTICS=false
-echo "Y" | npm install -g @angular/cli@latest --force
-ng analytics off
+# npm install -g @angular/cli@latest --force
+# ng analytics off
 
 # Get SUDO access without password
 sudo chmod 0400 /etc/sudoers

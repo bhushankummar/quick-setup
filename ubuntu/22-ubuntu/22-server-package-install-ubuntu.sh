@@ -36,7 +36,7 @@ sudo apt-get install git -q -y
 sudo apt install nginx -y
 
 # Install Python
-sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
+# sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
 # sudo apt install software-properties-common apt-transport-https wget -y
 # sudo pip install virtualenvwrapper
 
@@ -80,9 +80,9 @@ npm install nodemon -g
 npm install typescript -g
 
 # Install Angular CLI
-export NG_CLI_ANALYTICS=false
-npm install -g @angular/cli@latest --force
-ng analytics off
+# export NG_CLI_ANALYTICS=false
+# npm install -g @angular/cli@latest --force
+# ng analytics off
 
 # Get SUDO access without password
 sudo chmod 0400 /etc/sudoers
