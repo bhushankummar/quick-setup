@@ -25,6 +25,7 @@ echo "$CURRENT_USER"
 sudo apt-get update -q -y
 sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
+# sudo add-apt-repository universe
 
 # Install required additional dependencies
 sudo apt-get install build-essential -y
@@ -33,9 +34,9 @@ sudo apt-get install libssl-dev -y
 sudo apt-get install git -q -y
 
 # Install Python
-sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
-sudo apt install software-properties-common apt-transport-https wget -y
-sudo pip install virtualenvwrapper
+# sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
+# sudo apt install software-properties-common apt-transport-https wget -y
+# sudo pip install virtualenvwrapper
 
 # Install Samba (Still you have to update config files.)
 # sudo apt-get install samba -y
@@ -82,7 +83,7 @@ npm install typescript -g
 
 # Install Angular CLI
 export NG_CLI_ANALYTICS=false
-npm install -g @angular/cli@latest --force
+echo "Y" | npm install -g @angular/cli@latest --force
 ng analytics off
 
 # Get SUDO access without password
