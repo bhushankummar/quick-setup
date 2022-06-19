@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-red=`tput setaf 1`
-reset=`tput sgr0`
-green=`tput setaf 2`
+red=$(tput setaf 1)
+reset=$(tput sgr0)
+green=$(tput setaf 2)
 
 echo "Thank you, we are installting for the Server"
 
 echo "${green}"
-start=`date +%s`
+start=$(date +%s)
 echo "Start Time ${start}"
 echo "${reset}"
 
@@ -25,7 +25,6 @@ echo "$CURRENT_USER"
 sudo apt-get update -q -y
 sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
-# sudo add-apt-repository universe
 
 # Install required additional dependencies
 sudo apt-get install build-essential -y
@@ -33,8 +32,18 @@ sudo apt-get install curl -y
 sudo apt-get install libssl-dev -y
 sudo apt-get install git -q -y
 
+# Install nginx
+sudo apt install nginx -y
+
+# Install Certbot
+sudo apt install snapd -y
+sudo snap install core
+sudo snap refresh core
+sudo snap install --classic certbot
+sudo apt install python3-certbot-nginx -y
+
 # Install Python
-# sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
+sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
 # sudo apt install software-properties-common apt-transport-https wget -y
 # sudo pip install virtualenvwrapper
 
@@ -83,7 +92,7 @@ npm install typescript -g
 
 # Install Angular CLI
 export NG_CLI_ANALYTICS=false
-echo "Y" | npm install -g @angular/cli@latest --force
+npm install -g @angular/cli@latest --force
 ng analytics off
 
 # Get SUDO access without password
@@ -103,9 +112,9 @@ sudo apt autoremove -y
 sudo apt-get autoclean -y
 
 echo "${green}"
-end=`date +%s`
+end=$(date +%s)
 # echo "End Time ${end}"
-seconds=$((end-start))
+seconds=$((end - start))
 echo "Installation has been Completed !"
 echo "Total Time Taken In Seconds ${seconds}"
 eval "echo $(date -ud "@$seconds" +'%H hours %M minutes %S seconds')"

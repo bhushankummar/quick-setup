@@ -32,10 +32,13 @@ sudo apt-get install curl -y
 sudo apt-get install libssl-dev -y
 sudo apt-get install git -q -y
 
+# Install nginx
+sudo apt install nginx -y
+
 # Install Python
 sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
-sudo apt install software-properties-common apt-transport-https wget -y
-sudo pip install virtualenvwrapper
+# sudo apt install software-properties-common apt-transport-https wget -y
+# sudo pip install virtualenvwrapper
 
 # Install Samba (Still you have to update config files.)
 # sudo apt-get install samba -y
