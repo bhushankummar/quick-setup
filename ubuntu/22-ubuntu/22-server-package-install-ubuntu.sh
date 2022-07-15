@@ -27,13 +27,13 @@ sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
 
 # Install required additional dependencies
-sudo apt-get install build-essential -y
-sudo apt-get install curl -y
-sudo apt-get install libssl-dev -y
+sudo apt-get install build-essential -q -y
+sudo apt-get install curl -q -y
+sudo apt-get install libssl-dev -q -y
 sudo apt-get install git -q -y
 
 # Install nginx
-sudo apt install nginx -y
+sudo apt install nginx -q -y
 
 # Install Python
 # sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
@@ -55,7 +55,7 @@ sudo apt install nginx -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y
 sudo apt-get update -q -y
-sudo apt-get install docker-ce -y
+sudo apt-get install docker-ce -q -y
 
 # Install Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose

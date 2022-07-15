@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-red=`tput setaf 1`
-reset=`tput sgr0`
-green=`tput setaf 2`
+red=$(tput setaf 1)
+reset=$(tput sgr0)
+green=$(tput setaf 2)
 
 echo "Thank you, we are installting for the Desktop"
 
 echo "${green}"
-start=`date +%s`
+start=$(date +%s)
 echo "Start Time ${start}"
 echo "${reset}"
 
@@ -33,9 +33,12 @@ sudo apt-get install libssl-dev -y
 sudo apt-get install git -q -y
 
 # Install Python
-sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
-sudo apt install software-properties-common apt-transport-https wget -y
-sudo pip install virtualenvwrapper
+# sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
+# sudo apt install software-properties-common apt-transport-https wget -y
+# sudo pip install virtualenvwrapper
+
+# Allow Deb File Installation
+sudo apt install gdebi -q -y
 
 # -------------------- Desktop Installation Start -------------------- #
 # Speed Monitor
@@ -46,14 +49,14 @@ sudo pip install virtualenvwrapper
 # Install Anydesk
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
 echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
-sudo apt update -y
+sudo apt update -q -y
 sudo apt install anydesk -y
 echo hello@world | sudo anydesk --set-password
 
 # Install Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-sudo apt-get update  -y
+sudo apt-get update -q -y
 sudo apt-get install google-chrome-stable -y
 
 # Install snapd
@@ -94,7 +97,7 @@ sudo code --install-extension codezombiech.gitignore --user-data-dir
 sudo code --install-extension lacroixdavid1.vscode-format-context-menu --user-data-dir
 sudo code --install-extension mhutchie.git-graph --user-data-dir
 sudo code --install-extension tomoki1207.pdf --user-data-dir
-sudo code --install-extension ms-vscode-remote.remote-containers --user-data-dir
+# sudo code --install-extension ms-vscode-remote.remote-containers --user-data-dir
 sudo code --install-extension redhat.vscode-yaml --user-data-dir
 # sudo code --install-extension Shan.code-settings-sync --user-data-dir
 
@@ -115,9 +118,9 @@ sudo apt-get update -q -y
 sudo apt-get install variety variety-slideshow -y
 
 # Ubuntu 18 Tweaks
-sudo add-apt-repository universe -y
-sudo apt install gnome-tweak-tool -y
-sudo gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'cycle-windows'
+# sudo add-apt-repository universe -y
+# sudo apt install gnome-tweak-tool -y
+# sudo gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'cycle-windows'
 # -------------------- Desktop Installation End -------------------- #
 
 # Upgrade to Latest Update
@@ -130,9 +133,9 @@ sudo apt autoremove -y
 sudo apt-get autoclean -y
 
 echo "${green}"
-end=`date +%s`
+end=$(date +%s)
 # echo "End Time ${end}"
-seconds=$((end-start))
+seconds=$((end - start))
 echo "Installation has been Completed !"
 echo "Total Time Taken In Seconds ${seconds}"
 eval "echo $(date -ud "@$seconds" +'%H hours %M minutes %S seconds')"
