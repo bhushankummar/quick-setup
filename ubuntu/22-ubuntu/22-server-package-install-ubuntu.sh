@@ -67,17 +67,13 @@ docker-compose --version
 sudo usermod -a -G docker "$USER"
 
 # Install NVM
-curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
+curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.3/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Install Node
 export ENV NODE_VERSION=14.19.3
 nvm install $NODE_VERSION
-
-# Install Other Packages
-npm install nodemon -g
-npm install typescript -g
 
 # Install Angular CLI
 # export NG_CLI_ANALYTICS=false
