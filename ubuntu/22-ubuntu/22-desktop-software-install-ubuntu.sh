@@ -41,10 +41,6 @@ sudo apt-get install git -q -y
 sudo apt install gdebi -q -y
 
 # -------------------- Desktop Installation Start -------------------- #
-# Speed Monitor
-# sudo apt-add-repository ppa:fixnix/netspeed -y
-# sudo apt-get update -q -y
-# sudo apt-get install indicator-netspeed-unity -y
 
 # Install Anydesk
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
@@ -82,7 +78,6 @@ sudo code --install-extension monokai.theme-monokai-pro-vscode --user-data-dir
 sudo code --install-extension christian-kohler.npm-intellisense --user-data-dir
 sudo code --install-extension christian-kohler.path-intellisense --user-data-dir
 sudo code --install-extension msjsdiag.debugger-for-chrome --user-data-dir
-# sudo code --install-extension EditorConfig.EditorConfig --user-data-dir
 sudo code --install-extension michelemelluso.code-beautifier --user-data-dir
 sudo code --install-extension ms-vscode.vscode-typescript-tslint-plugin --user-data-dir
 sudo code --install-extension ritwickdey.LiveServer --user-data-dir
@@ -97,31 +92,20 @@ sudo code --install-extension codezombiech.gitignore --user-data-dir
 sudo code --install-extension lacroixdavid1.vscode-format-context-menu --user-data-dir
 sudo code --install-extension mhutchie.git-graph --user-data-dir
 sudo code --install-extension tomoki1207.pdf --user-data-dir
-# sudo code --install-extension ms-vscode-remote.remote-containers --user-data-dir
 sudo code --install-extension redhat.vscode-yaml --user-data-dir
-# sudo code --install-extension Shan.code-settings-sync --user-data-dir
 
 # Set Visual Code Preference
 sudo cp ../.vscode/settings.json $HOME/.config/Code/User/settings.json
 sudo cp ../.vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
 
 # Install Smartgit
-# sudo add-apt-repository ppa:eugenesan/ppa -y
-# sudo apt-get update -y
-# sudo apt-get install smartgit -y
-wget https://www.syntevo.com/downloads/smartgit/smartgit-21_2_3.deb
-sudo dpkg -i smartgit-21_2_3.deb -y
+wget https://www.syntevo.com/downloads/smartgit/smartgit-22_1_2.deb
+sudo dpkg -i smartgit-22_1_2.deb
 
 # Install Wallpaper Changer
 sudo add-apt-repository ppa:peterlevi/ppa -y
 sudo apt-get update -q -y
 sudo apt-get install variety variety-slideshow -y
-
-# Ubuntu 18 Tweaks
-# sudo add-apt-repository universe -y
-# sudo apt install gnome-tweak-tool -y
-# sudo gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'cycle-windows'
-# -------------------- Desktop Installation End -------------------- #
 
 # Upgrade to Latest Update
 sudo apt-get update -q -y
