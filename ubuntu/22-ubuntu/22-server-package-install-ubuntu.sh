@@ -14,13 +14,6 @@ echo "${red}"
 echo "WARNING : Execute script without sudo command."
 echo "${reset}"
 
-# Get Username
-CURRENT_USER=$USER
-echo "$CURRENT_USER"
-
-# Enable multiverse repository
-# sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
-
 # Upgrade to Latest Update
 sudo apt-get update -q -y
 sudo apt-get upgrade -q -y
@@ -39,10 +32,6 @@ sudo apt install nginx -q -y
 # sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
 # sudo apt install software-properties-common apt-transport-https wget -y
 # sudo pip install virtualenvwrapper
-
-# Install Samba (Still you have to update config files.)
-# sudo apt-get install samba -y
-# sudo apt-get install system-config-samba -y
 
 # Install Java (Auto Accept Terms)
 # sudo apt-get update -q -y
@@ -67,25 +56,17 @@ docker-compose --version
 sudo usermod -a -G docker "$USER"
 
 # Install NVM
-curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.3/install.sh | bash
+curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Install Node
-export ENV NODE_VERSION=14.19.3
+export ENV NODE_VERSION=20.9.0
 nvm install $NODE_VERSION
-
-# Install Angular CLI
-# export NG_CLI_ANALYTICS=false
-# npm install -g @angular/cli@latest --force
-# ng analytics off
 
 # Get SUDO access without password
 sudo chmod 0400 /etc/sudoers
 echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo EDITOR='tee -a' visudo
-
-# Pull Images for Docker
-# docker pull bitnami/redis
 
 # Upgrade to Latest Update
 sudo apt-get update -q -y

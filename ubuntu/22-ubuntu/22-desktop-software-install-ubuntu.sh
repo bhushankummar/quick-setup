@@ -14,10 +14,6 @@ echo "${red}"
 echo "WARNING : Execute script without sudo command."
 echo "${reset}"
 
-# Get Username
-CURRENT_USER=$USER
-echo "$CURRENT_USER"
-
 # Enable multiverse repository
 sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
 
@@ -97,10 +93,6 @@ sudo code --install-extension redhat.vscode-yaml --user-data-dir
 # Set Visual Code Preference
 sudo cp ../.vscode/settings.json $HOME/.config/Code/User/settings.json
 sudo cp ../.vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
-
-# Install Smartgit
-wget https://www.syntevo.com/downloads/smartgit/smartgit-22_1_2.deb
-sudo dpkg -i smartgit-22_1_2.deb
 
 # Install Wallpaper Changer
 sudo add-apt-repository ppa:peterlevi/ppa -y

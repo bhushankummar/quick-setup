@@ -3,14 +3,14 @@
   "liveServer.settings.donotShowInfoMsg": true,
   // The number of spaces a tab is equal to. This setting is overridden
   // based on the file contents when `editor.detectIndentation` is true.
-  "editor.tabSize": 4,
+  // "editor.tabSize": 4,
   // Insert spaces when pressing Tab. This setting is overriden
   // based on the file contents when `editor.detectIndentation` is true.
-  "editor.insertSpaces": true,
+  // "editor.insertSpaces": true,
   // When opening a file, `editor.tabSize` and `editor.insertSpaces`
   // will be detected based on the file contents. Set to false to keep
   // the values you've explicitly set, above.
-  "editor.detectIndentation": true,
+  // "editor.detectIndentation": true,
   "workbench.editor.enablePreview": false,
   "explorer.confirmDragAndDrop": false,
   "cSpell.userWords": [],
@@ -20,6 +20,7 @@
   "window.zoomLevel": 1,
   "explorer.confirmDelete": false,
   "editor.minimap.enabled": false,
+  "workbench.iconTheme": "vscode-icons",
   "liveServer.settings.donotVerifyTags": true,
   "vsicons.projectDetection.autoReload": true,
   "vsicons.dontShowNewVersionMessage": true,
@@ -44,23 +45,19 @@
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "files.trimTrailingWhitespace": true,
-  "workbench.list.openMode": "singleClick",
+  "workbench.list.openMode": "doubleClick",
   "cSpell.words": [
-    "nestjs"
   ],
   "editor.rulers": [
     120
   ],
   "editor.wordWrapColumn": 120,
-  "editor.wrappingStrategy": "advanced",
+  "editor.wrappingStrategy": "simple",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": false,
+    "source.fixAll": false,
     "source.organizeImports": true,
-    "source.fixAll": true,
   },
-  "eslint.validate": [
-    "typescript"
-  ],
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "workbench.editor.highlightModifiedTabs": true,
@@ -69,5 +66,17 @@
   "files.trimFinalNewlines": true,
   "workbench.settings.useSplitJSON": true,
   "workbench.settings.editor": "json",
-  "explorer.openEditors.visible": 0
+  "explorer.openEditors.visible": 0,
+  "editor.wordWrap": "on",
+  "editor.autoIndent": "none",
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": false,
+  "editor.tabSize": 3,
+  "editor.guides.highlightActiveIndentation": false,
+  "git.ignoreLimitWarning": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": false
+  },
+  "eslint.enable": true
 }
