@@ -14,6 +14,13 @@ echo "${red}"
 echo "WARNING : Execute script without sudo command."
 echo "${reset}"
 
+# Get Username
+CURRENT_USER=$USER
+echo "$CURRENT_USER"
+
+# Enable multiverse repository
+# sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
+
 # Upgrade to Latest Update
 sudo apt-get update -q -y
 sudo apt-get upgrade -q -y
@@ -36,17 +43,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-# Set Access for Current User
 sudo usermod -a -G docker "$USER"
-
-# Install NVM
-curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# Install Node
-export ENV NODE_VERSION=20.9.0
-nvm install $NODE_VERSION
 
 # Get SUDO access without password
 sudo chmod 0400 /etc/sudoers
