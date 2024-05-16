@@ -23,11 +23,11 @@ sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
 
 # Install required additional dependencies
-sudo apt-get install build-essential -y
-sudo apt-get install curl -y
-sudo apt-get install libssl-dev -y
+sudo apt-get install build-essential -q -y
+sudo apt-get install curl -q -y
+sudo apt-get install libssl-dev -q -y
 sudo apt-get install git -q -y
-sudo apt install fuse -y
+sudo apt install fuse -q -y
 
 # Install Python
 # sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
@@ -43,13 +43,13 @@ sudo apt install gdebi -q -y
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
 echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 sudo apt update -q -y
-sudo apt install anydesk -y
+sudo apt install anydesk -q -y
 
 # Install Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 sudo apt-get update -q -y
-sudo apt-get install google-chrome-stable -y
+sudo apt-get install google-chrome-stable -q -y
 
 # Install snapd
 sudo apt install snapd -y
@@ -91,7 +91,7 @@ sudo cp ../.vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
 # Install Wallpaper Changer
 sudo add-apt-repository ppa:peterlevi/ppa -y
 sudo apt-get update -q -y
-sudo apt-get install variety variety-slideshow -y
+sudo apt-get install variety variety-slideshow -q -y
 
 # Install PrimeTracker
 wget https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/download/v1.2.0/prime-tracker-desktop_1.2.0_amd64.deb
