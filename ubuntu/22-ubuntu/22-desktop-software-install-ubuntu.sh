@@ -27,6 +27,7 @@ sudo apt-get install build-essential -y
 sudo apt-get install curl -y
 sudo apt-get install libssl-dev -y
 sudo apt-get install git -q -y
+sudo apt install fuse -y
 
 # Install Python
 # sudo apt-get install python-pip python-dev python-virtualenv python-software-properties debconf-utils -y
@@ -54,8 +55,8 @@ sudo apt-get install google-chrome-stable -y
 # Install snapd
 sudo apt install snapd -y
 
-# Install RocketChat
-sudo snap install rocketchat-desktop --classic
+# Install Discord
+sudo snap install discord -y
 
 # Install Slack
 sudo snap install slack --classic
@@ -73,22 +74,16 @@ sudo snap install code --classic
 sudo code --install-extension monokai.theme-monokai-pro-vscode --user-data-dir
 sudo code --install-extension christian-kohler.npm-intellisense --user-data-dir
 sudo code --install-extension christian-kohler.path-intellisense --user-data-dir
-sudo code --install-extension msjsdiag.debugger-for-chrome --user-data-dir
-sudo code --install-extension michelemelluso.code-beautifier --user-data-dir
 sudo code --install-extension ms-vscode.vscode-typescript-tslint-plugin --user-data-dir
 sudo code --install-extension ritwickdey.LiveServer --user-data-dir
 sudo code --install-extension streetsidesoftware.code-spell-checker --user-data-dir
 sudo code --install-extension dbaeumer.vscode-eslint --user-data-dir
 sudo code --install-extension vscode-icons-team.vscode-icons --user-data-dir
-sudo code --install-extension Angular.ng-template --user-data-dir
-sudo code --install-extension johnpapa.Angular2 --user-data-dir
-sudo code --install-extension ms-azuretools.vscode-docker --user-data-dir
 sudo code --install-extension mikestead.dotenv --user-data-dir
 sudo code --install-extension codezombiech.gitignore --user-data-dir
 sudo code --install-extension lacroixdavid1.vscode-format-context-menu --user-data-dir
 sudo code --install-extension mhutchie.git-graph --user-data-dir
 sudo code --install-extension tomoki1207.pdf --user-data-dir
-sudo code --install-extension redhat.vscode-yaml --user-data-dir
 
 # Set Visual Code Preference
 sudo cp ../.vscode/settings.json $HOME/.config/Code/User/settings.json
@@ -98,6 +93,10 @@ sudo cp ../.vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
 sudo add-apt-repository ppa:peterlevi/ppa -y
 sudo apt-get update -q -y
 sudo apt-get install variety variety-slideshow -y
+
+# Install PrimeTracker
+curl -O https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/download/v1.2.0/prime-tracker-desktop_1.2.0_amd64.deb
+sudo apt install -y prime-tracker-desktop_1.2.0_amd64.deb
 
 # Upgrade to Latest Update
 sudo apt-get update -q -y
