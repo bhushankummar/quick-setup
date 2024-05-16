@@ -1,29 +1,35 @@
 #!/usr/bin/env bash
+
+# Define colors for terminal output
 red=$(tput setaf 1)
-reset=$(tput sgr0)
 green=$(tput setaf 2)
+reset=$(tput sgr0)
 
-echo "Thank you, we are installting for the Server"
-
-echo "${green}"
+# Start timer
 start=$(date +%s)
-echo "Start Time ${start}"
-echo "${reset}"
 
-echo "${red}"
-echo "WARNING : Execute script without sudo command."
-echo "${reset}"
+# Function to display elapsed time
+display_elapsed_time() {
+    end=$(date +%s)
+    seconds=$((end - start))
+    elapsed_time=$(date -ud "@$seconds" +'%H hours %M minutes %S seconds')
+    echo "Total Time Taken: $elapsed_time"
+}
 
-# Upgrade to Latest Update
+# Display installation start message
+echo "Thank you, we are installing for the Server"
+echo "${green}Start Time: $(date)${reset}"
+
+# Warning message
+echo "${red}WARNING: Execute script without sudo command.${reset}"
+
+# Update repository and upgrade system
 sudo apt-get update -q -y
 sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
 
-# Install required additional dependencies
-sudo apt-get install build-essential -q -y
-sudo apt-get install curl -q -y
-sudo apt-get install libssl-dev -q -y
-sudo apt-get install git -q -y
+# Install required packages
+sudo apt-get install build-essential curl libssl-dev git -q -y
 
 # Install Docker CE
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -36,36 +42,30 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-# Set Access for Current User
+# Add current user to docker group
 sudo usermod -a -G docker "$USER"
 
 # Install NVM
 curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
+
+# Load NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Install Node
-export ENV NODE_VERSION=20.9.0
-nvm install $NODE_VERSION
+nvm install 20.9.0
 
-# Get SUDO access without password
-sudo chmod 0400 /etc/sudoers
+# Grant sudo access without password
 echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo EDITOR='tee -a' visudo
 
-# Upgrade to Latest Update
+# Perform system upgrade and cleanup
 sudo apt-get update -q -y
 sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
-
-# Remove useless files from the APT cache
 sudo apt autoremove -y
 sudo apt-get autoclean -y
 
-echo "${green}"
-end=$(date +%s)
-# echo "End Time ${end}"
-seconds=$((end - start))
-echo "Installation has been Completed !"
-echo "Total Time Taken In Seconds ${seconds}"
-eval "echo $(date -ud "@$seconds" +'%H hours %M minutes %S seconds')"
+# Display completion message and elapsed time
+echo "${green}Installation has been Completed!"
+display_elapsed_time
 echo "${reset}"
