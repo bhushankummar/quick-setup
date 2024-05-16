@@ -59,10 +59,10 @@ sudo apt install snapd -y
 sudo snap install discord -y
 
 # Install Slack
-sudo snap install slack --classic
+sudo snap install slack
 
 # Install Skype
-sudo snap install skype --classic
+sudo snap install skype
 
 # Install Postman
 sudo snap install postman
@@ -71,19 +71,19 @@ sudo snap install postman
 sudo snap install code --classic
 
 # Install Visual Code Extension
-sudo code --install-extension monokai.theme-monokai-pro-vscode --user-data-dir
-sudo code --install-extension christian-kohler.npm-intellisense --user-data-dir
-sudo code --install-extension christian-kohler.path-intellisense --user-data-dir
-sudo code --install-extension ms-vscode.vscode-typescript-tslint-plugin --user-data-dir
-sudo code --install-extension ritwickdey.LiveServer --user-data-dir
-sudo code --install-extension streetsidesoftware.code-spell-checker --user-data-dir
-sudo code --install-extension dbaeumer.vscode-eslint --user-data-dir
-sudo code --install-extension vscode-icons-team.vscode-icons --user-data-dir
-sudo code --install-extension mikestead.dotenv --user-data-dir
-sudo code --install-extension codezombiech.gitignore --user-data-dir
-sudo code --install-extension lacroixdavid1.vscode-format-context-menu --user-data-dir
-sudo code --install-extension mhutchie.git-graph --user-data-dir
-sudo code --install-extension tomoki1207.pdf --user-data-dir
+sudo code --install-extension monokai.theme-monokai-pro-vscode
+sudo code --install-extension christian-kohler.npm-intellisense
+sudo code --install-extension christian-kohler.path-intellisense
+sudo code --install-extension ms-vscode.vscode-typescript-tslint-plugin
+sudo code --install-extension ritwickdey.LiveServer
+sudo code --install-extension streetsidesoftware.code-spell-checker
+sudo code --install-extension dbaeumer.vscode-eslint
+sudo code --install-extension vscode-icons-team.vscode-icons
+sudo code --install-extension mikestead.dotenv
+sudo code --install-extension codezombiech.gitignore
+sudo code --install-extension lacroixdavid1.vscode-format-context-menu
+sudo code --install-extension mhutchie.git-graph
+sudo code --install-extension tomoki1207.pdf
 
 # Set Visual Code Preference
 sudo cp ../.vscode/settings.json $HOME/.config/Code/User/settings.json
