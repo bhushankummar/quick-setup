@@ -44,7 +44,6 @@ wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
 echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 sudo apt update -q -y
 sudo apt install anydesk -y
-echo hello@world | sudo anydesk --set-password
 
 # Install Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -56,7 +55,7 @@ sudo apt-get install google-chrome-stable -y
 sudo apt install snapd -y
 
 # Install Discord
-sudo snap install discord -y
+sudo snap install discord
 
 # Install Slack
 sudo snap install slack
@@ -95,8 +94,8 @@ sudo apt-get update -q -y
 sudo apt-get install variety variety-slideshow -y
 
 # Install PrimeTracker
-curl -O https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/download/v1.2.0/prime-tracker-desktop_1.2.0_amd64.deb
-sudo apt install -y prime-tracker-desktop_1.2.0_amd64.deb
+wget https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/download/v1.2.0/prime-tracker-desktop_1.2.0_amd64.deb
+sudo gdebi -n ./prime-tracker-desktop_1.2.0_amd64.deb
 
 # Upgrade to Latest Update
 sudo apt-get update -q -y
