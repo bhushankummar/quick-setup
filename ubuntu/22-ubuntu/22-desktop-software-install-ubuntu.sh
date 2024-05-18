@@ -23,6 +23,9 @@ echo "${green}Start Time: $(date)${reset}"
 # Warning message
 echo "${red}WARNING: Execute script without sudo command.${reset}"
 
+# Make sure the function script is executable (if needed)
+chmod +x utils.sh
+
 # Enable multiverse repository
 sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
 
@@ -37,22 +40,7 @@ sudo apt-get install build-essential curl libssl-dev git fuse gdebi -q -y
 # Install Anydesk
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
 echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
-
-## AnyDesk - fix the "display server not supported" error
-# Edit the GDM3 configuration file with nano and set Wayland disabled
-sudo nano /etc/gdm3/custom.conf
-
-# Search for the "[daemon]" section (case-sensitive)
-grep -q '^\[daemon\]' /etc/gdm3/custom.conf
-
-# If the section is found (exit code 0), uncomment WaylandEnable=false
-if [ $? -eq 0 ]; then
-  sed -i 's/^#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
-  echo "Wayland disabled in /etc/gdm3/custom.conf"
-else
-  echo "WARNING: [daemon] section not found in /etc/gdm3/custom.conf"
-  echo "Wayland settings might not be present or the file structure might be different."
-fi
+fix_anydesk()
 
 # Install Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -76,6 +64,18 @@ sudo apt-get install variety variety-slideshow -q -y
 # Install PrimeTracker
 wget -q https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/download/v1.2.0/prime-tracker-desktop_1.2.0_amd64.deb
 sudo gdebi -n ./prime-tracker-desktop_1.2.0_amd64.deb
+
+# Call the function to add Discord
+add_to_favorites "discord.desktop"  # Replace if desktop file name differs
+
+# Call the function to add Chrome
+add_to_favorites "chrome.desktop"  # Replace if desktop file name differs
+
+# Call the function to add Chrome
+add_to_favorites "code"  # Replace if desktop file name differs
+
+# Call the function to add Chrome
+add_to_favorites "code"  # Replace if desktop file name differs
 
 # Upgrade system again
 sudo apt-get update -q -y
