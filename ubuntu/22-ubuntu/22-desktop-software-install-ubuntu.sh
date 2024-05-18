@@ -38,6 +38,22 @@ sudo apt-get install build-essential curl libssl-dev git fuse gdebi -q -y
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
 echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 
+## AnyDesk - fix the "display server not supported" error
+# Edit the GDM3 configuration file with nano and set Wayland disabled
+sudo nano /etc/gdm3/custom.conf
+
+# Search for the "[daemon]" section (case-sensitive)
+grep -q '^\[daemon\]' /etc/gdm3/custom.conf
+
+# If the section is found (exit code 0), uncomment WaylandEnable=false
+if [ $? -eq 0 ]; then
+  sed -i 's/^#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
+  echo "Wayland disabled in /etc/gdm3/custom.conf"
+else
+  echo "WARNING: [daemon] section not found in /etc/gdm3/custom.conf"
+  echo "Wayland settings might not be present or the file structure might be different."
+fi
+
 # Install Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
