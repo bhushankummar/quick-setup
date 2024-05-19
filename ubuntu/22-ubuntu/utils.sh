@@ -16,7 +16,6 @@ is_installed() {
 add_to_favorites() {
   desktop_file="$1"
 
-
   # Check if desktop file exists
   if [ ! -f "$desktop_file" ]; then
     echo "Error: '$desktop_file' not found. Skipping."

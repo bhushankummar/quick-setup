@@ -29,58 +29,40 @@ chmod +x utils.sh
 # Enable multiverse repository
 sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
 
+# Install Anydesk
+wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
+echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
+
+# Install Wallpaper Changer
+sudo add-apt-repository ppa:peterlevi/ppa -y
+
+# Install Google Chrome
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
 # Update repository and upgrade system
 sudo apt-get update -q -y
 sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
 
 # Install required packages
-sudo apt-get install build-essential curl libssl-dev git fuse gdebi -q -y
-
-# Install Anydesk
-wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
-echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
+sudo apt-get install build-essential curl libssl-dev git fuse gdebi snapd anydesk variety variety-slideshow google-chrome-stable -q -y
 fix_anydesk()
 
-# Install Google Chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-
-# Install Visual Studio Code
-sudo snap install code --classic
+# Install Snap Packages
+sudo snap install code discord slack skype postman
 
 # Install Visual Studio Code extensions
 sudo code --install-extension monokai.theme-monokai-pro-vscode christian-kohler.npm-intellisense christian-kohler.path-intellisense ms-vscode.vscode-typescript-tslint-plugin ritwickdey.LiveServer streetsidesoftware.code-spell-checker dbaeumer.vscode-eslint vscode-icons-team.vscode-icons mikestead.dotenv codezombiech.gitignore lacroixdavid1.vscode-format-context-menu mhutchie.git-graph tomoki1207.pdf
-
-# Install remaining software using snap
-sudo apt install snapd -y
-sudo snap install anydesk discord slack skype postman
-
-# Install Wallpaper Changer
-sudo add-apt-repository ppa:peterlevi/ppa -y
-sudo apt-get update -q -y
-sudo apt-get install variety variety-slideshow -q -y
 
 # Install PrimeTracker
 wget -q https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/download/v1.2.0/prime-tracker-desktop_1.2.0_amd64.deb
 sudo gdebi -n ./prime-tracker-desktop_1.2.0_amd64.deb
 
-# Call the function to add Discord
-add_to_favorites "discord.desktop"  # Replace if desktop file name differs
-
-# Call the function to add Chrome
-add_to_favorites "chrome.desktop"  # Replace if desktop file name differs
-
-# Call the function to add Chrome
-add_to_favorites "code"  # Replace if desktop file name differs
-
-# Call the function to add Chrome
-add_to_favorites "code"  # Replace if desktop file name differs
-
-# Upgrade system again
-sudo apt-get update -q -y
-sudo apt-get upgrade -q -y
-sudo apt-get dist-upgrade -q -y
+# Call the to add App into Favourite
+add_to_favorites "discord.desktop"
+add_to_favorites "chrome.desktop"
+add_to_favorites "code"
 
 # Cleanup
 sudo apt autoremove -y
