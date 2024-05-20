@@ -30,14 +30,14 @@ chmod +x utils.sh
 sudo sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
 
 # Install Anydesk
-wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
+curl -sL https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
 echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
 
 # Install Wallpaper Changer
 sudo add-apt-repository ppa:peterlevi/ppa -y
 
 # Install Google Chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+curl -sL https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
 # Update repository and upgrade system
@@ -56,13 +56,14 @@ sudo snap install code discord slack skype postman
 sudo code --install-extension monokai.theme-monokai-pro-vscode christian-kohler.npm-intellisense christian-kohler.path-intellisense ms-vscode.vscode-typescript-tslint-plugin ritwickdey.LiveServer streetsidesoftware.code-spell-checker dbaeumer.vscode-eslint vscode-icons-team.vscode-icons mikestead.dotenv codezombiech.gitignore lacroixdavid1.vscode-format-context-menu mhutchie.git-graph tomoki1207.pdf
 
 # Install PrimeTracker
-wget -q https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/download/v1.2.0/prime-tracker-desktop_1.2.0_amd64.deb
-sudo gdebi -n ./prime-tracker-desktop_1.2.0_amd64.deb
+curl -O https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/latest/download/prime-tracker-linux-amd64.deb
+sudo gdebi -n ./prime-tracker-linux-amd64.deb
 
 # Call the to add App into Favourite
 add_to_favorites "discord.desktop"
 add_to_favorites "chrome.desktop"
 add_to_favorites "code"
+add_to_favorites "prime-tracker"
 
 # Cleanup
 sudo apt autoremove -y
