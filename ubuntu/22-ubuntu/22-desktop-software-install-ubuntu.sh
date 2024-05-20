@@ -46,7 +46,7 @@ sudo apt-get upgrade -q -y
 sudo apt-get dist-upgrade -q -y
 
 # Install required packages
-sudo apt-get install build-essential curl libssl-dev git fuse gdebi snapd anydesk variety variety-slideshow google-chrome-stable -q -y
+sudo apt-get install build-essential libssl-dev git fuse gdebi snapd anydesk variety variety-slideshow google-chrome-stable -q -y
 fix_anydesk()
 
 # Install Snap Packages
@@ -56,7 +56,7 @@ sudo snap install code discord slack skype postman
 sudo code --install-extension monokai.theme-monokai-pro-vscode christian-kohler.npm-intellisense christian-kohler.path-intellisense ms-vscode.vscode-typescript-tslint-plugin ritwickdey.LiveServer streetsidesoftware.code-spell-checker dbaeumer.vscode-eslint vscode-icons-team.vscode-icons mikestead.dotenv codezombiech.gitignore lacroixdavid1.vscode-format-context-menu mhutchie.git-graph tomoki1207.pdf
 
 # Install PrimeTracker
-curl -O https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/latest/download/prime-tracker-linux-amd64.deb
+curl -L -O https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/latest/download/prime-tracker-linux-amd64.deb
 sudo gdebi -n ./prime-tracker-linux-amd64.deb
 
 # Call the to add App into Favourite
