@@ -44,4 +44,4 @@ sudo apt autoremove -y && sudo apt autoclean -y
 
 # Display completion message and elapsed time
 echo "Installation has been Completed!"
-display_elapsed_ time
+display_elapsed_time
