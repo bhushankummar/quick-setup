@@ -15,17 +15,15 @@ display_elapsed_time() {
 echo "Thank you, we are installing for the Server"
 echo "Start Time: $(date)"
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# Install Docker CE
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-gpg.key
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y
 
 # Update and upgrade (combine in one command)
 sudo apt update -q -y && sudo apt upgrade -q -y && sudo apt dist-upgrade -q -y
 
 # Install packages (combine in one command)
-sudo apt install build-essential curl libssl-dev git -q -y
-
-# Install Docker CE (streamline commands)
-sudo apt install docker-ce docker-compose -q -y
+sudo apt install build-essential wget libssl-dev git docker-ce docker-compose -q -y
 
 # (Optional) Add user to docker group (outside of script for security)
 # sudo usermod -a -G docker "$USER"
