@@ -16,7 +16,8 @@ echo "Thank you, we are installing for the Server"
 echo "Start Time: $(date)"
 
 # Install Docker CE
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-gpg.key || true
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-gpg.key || true
+echo y | sudo gpg --dearmor -o /usr/share/keyrings/docker-gpg.key curl -fsSL https://download.docker.com/linux/ubuntu/gpg
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y
 
 # Update and upgrade (combine in one command)
