@@ -63,7 +63,7 @@ sudo gdebi -n ./prime-tracker-linux-amd64.deb
 add_to_favorites "discord.desktop"
 add_to_favorites "chrome.desktop"
 add_to_favorites "code"
-add_to_favorites "prime-tracker"
+add_to_favorites "prime-tracker-desktop"
 
 # Cleanup
 sudo apt autoremove -y
