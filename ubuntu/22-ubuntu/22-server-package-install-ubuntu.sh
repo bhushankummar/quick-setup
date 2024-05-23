@@ -16,8 +16,7 @@ echo "Thank you, we are installing for the Server"
 echo "Start Time: $(date)"
 
 # Install Docker CE
-#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-gpg.key || true
-echo y | sudo gpg --dearmor -o /usr/share/keyrings/docker-gpg.key curl -fsSL https://download.docker.com/linux/ubuntu/gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y
 
 # Update and upgrade (combine in one command)
@@ -33,7 +32,8 @@ sudo apt install build-essential wget libssl-dev git docker-ce docker-compose -q
 curl -L -O https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
 
 # Load NVM
-. ~/.nvm/nvm.sh
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Install Node
 nvm install 20.9.0
