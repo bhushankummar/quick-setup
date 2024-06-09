@@ -16,21 +16,6 @@ is_installed() {
 add_to_favorites() {
   app_name="$1"
 
-  # Search for the desktop file associated with the application
-  desktop_file=$(find /usr/share/applications ~/.local/share/applications -name "$app_name.desktop" | head -n 1)
-
-  # Check if desktop file exists
-  if [ -z "$desktop_file" ]; then
-    echo "Error: Desktop file for '$app_name' not found. Skipping." >&2
-    return 1
-  fi
-
-  # Check if the application is installed
-  if ! is_installed "$app_name"; then
-    echo "$app_name is not installed. Skipping." >&2
-    return 1
-  fi
-
   # Get the current favorites list
   current_favorites=$(gsettings get org.gnome.shell favorite-apps)
 
