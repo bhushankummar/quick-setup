@@ -14,17 +14,20 @@ is_installed() {
 
 # Function to add an app to favorites
 add_to_favorites() {
-  desktop_file="$1"
+  app_name="$1"
+
+  # Search for the desktop file associated with the application
+  desktop_file=$(locate -r "\/$app_name\.desktop$" | head -n 1)
 
   # Check if desktop file exists
-  if [ ! -f "$desktop_file" ]; then
-    echo "Error: '$desktop_file' not found. Skipping."
+  if [ -z "$desktop_file" ]; then
+    echo "Error: Desktop file for '$app_name' not found. Skipping." >&2
     return 1
   fi
 
   # Call the is_installed function to check program availability
-  if ! is_installed "$(basename "$desktop_file" .desktop)"; then
-    echo "$(basename "$desktop_file" .desktop) is not installed. Skipping."
+  if ! is_installed "$app_name"; then
+    echo "$app_name is not installed. Skipping." >&2
     return 1
   fi
 
@@ -34,7 +37,7 @@ add_to_favorites() {
   # Check if app is already in favorites
   current_favorites=$(gsettings get org.gnome.shell favorite-apps)
   if grep -q "'$escaped_desktop_file'" <<< "$current_favorites"; then
-    echo "$desktop_file already exists in your favorites."
+    echo "$app_name is already in your favorites."
     return 0
   fi
 
@@ -42,29 +45,23 @@ add_to_favorites() {
   new_favorites="$current_favorites, '$escaped_desktop_file'"
 
   # Update the favorites list using gsettings
-  gsettings set org.gnome.shell favorite-apps "$new_favorites"
-
-  if [ $? -eq 0 ]; then
-    echo "$desktop_file added to your favorites successfully."
+  if ! gsettings set org.gnome.shell favorite-apps "$new_favorites"; then
+    echo "Error: Failed to update favorites list for $app_name." >&2
+    return 1
   else
-    echo "Error: Failed to update favorites list for $desktop_file."
+    echo "$app_name added to your favorites successfully."
+    return 0
   fi
 }
 
-fix_anydesk(){
-	## AnyDesk - fix the "display server not supported" error
-	# Edit the GDM3 configuration file with nano and set Wayland disabled
-	sudo nano /etc/gdm3/custom.conf
-
-	# Search for the "[daemon]" section (case-sensitive)
-	grep -q '^\[daemon\]' /etc/gdm3/custom.conf
-
-	# If the section is found (exit code 0), uncomment WaylandEnable=false
-	if [ $? -eq 0 ]; then
-	sed -i 's/^#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
-	echo "Wayland disabled in /etc/gdm3/custom.conf"
-	else
-	echo "WARNING: [daemon] section not found in /etc/gdm3/custom.conf"
-	echo "Wayland settings might not be present or the file structure might be different."
-	fi
+fix_anydesk() {
+    # Check if the [daemon] section exists
+    if grep -q '^\[daemon\]' /etc/gdm3/custom.conf; then
+        # Disable Wayland if enabled
+        sudo sed -i 's/^#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
+        echo "Wayland disabled in /etc/gdm3/custom.conf"
+    else
+        echo "WARNING: [daemon] section not found in /etc/gdm3/custom.conf"
+        echo "Wayland settings might not be present or the file structure might be different."
+    fi
 }
