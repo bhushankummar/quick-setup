@@ -44,15 +44,30 @@ echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sud
 sudo apt update -q -y && sudo apt upgrade -q -y && sudo apt dist-upgrade -q -y
 
 # Install required packages
-sudo apt-get install build-essential libssl-dev git fuse gdebi snapd anydesk variety variety-slideshow google-chrome-stable -q -y
+sudo apt-get install libssl-dev git fuse gdebi snapd anydesk variety variety-slideshow google-chrome-stable -q -y
 fix_anydesk
 
 # Install Snap Packages
 sudo snap install code --classic
-sudo snap install discord slack skype postman
+sudo snap install discord
+sudo snap install slack
+sudo snap install skype
+sudo snap install postman
 
 # Install Visual Studio Code extensions
-sudo code --install-extension monokai.theme-monokai-pro-vscode christian-kohler.npm-intellisense christian-kohler.path-intellisense ms-vscode.vscode-typescript-tslint-plugin ritwickdey.LiveServer streetsidesoftware.code-spell-checker dbaeumer.vscode-eslint vscode-icons-team.vscode-icons mikestead.dotenv codezombiech.gitignore lacroixdavid1.vscode-format-context-menu mhutchie.git-graph tomoki1207.pdf
+sudo code --user-data-dir="~/.config/Code" --install-extension monokai.theme-monokai-pro-vscode
+sudo code --user-data-dir="~/.config/Code" --install-extension christian-kohler.npm-intellisense
+sudo code --user-data-dir="~/.config/Code" --install-extension christian-kohler.path-intellisense
+sudo code --user-data-dir="~/.config/Code" --install-extension ms-vscode.vscode-typescript-tslint-plugin
+sudo code --user-data-dir="~/.config/Code" --install-extension ritwickdey.LiveServer
+sudo code --user-data-dir="~/.config/Code" --install-extension streetsidesoftware.code-spell-checker
+sudo code --user-data-dir="~/.config/Code" --install-extension dbaeumer.vscode-eslint
+sudo code --user-data-dir="~/.config/Code" --install-extension vscode-icons-team.vscode-icons
+sudo code --user-data-dir="~/.config/Code" --install-extension mikestead.dotenv
+sudo code --user-data-dir="~/.config/Code" --install-extension codezombiech.gitignore
+sudo code --user-data-dir="~/.config/Code" --install-extension lacroixdavid1.vscode-format-context-menu
+sudo code --user-data-dir="~/.config/Code" --install-extension mhutchie.git-graph
+sudo code --user-data-dir="~/.config/Code" --install-extension tomoki1207.pdf
 
 # Install PrimeTracker
 curl -L -O https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/latest/download/prime-tracker-linux-amd64.deb
