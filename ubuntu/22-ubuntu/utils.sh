@@ -17,7 +17,7 @@ add_to_favorites() {
   app_name="$1"
 
   # Search for the desktop file associated with the application
-  desktop_file=$(locate -r "\/$app_name\.desktop$" | head -n 1)
+  desktop_file=$(find /usr/share/applications ~/.local/share/applications -name "$app_name.desktop" | head -n 1)
 
   # Check if desktop file exists
   if [ -z "$desktop_file" ]; then
@@ -25,24 +25,23 @@ add_to_favorites() {
     return 1
   fi
 
-  # Call the is_installed function to check program availability
+  # Check if the application is installed
   if ! is_installed "$app_name"; then
     echo "$app_name is not installed. Skipping." >&2
     return 1
   fi
 
-  # Escape special characters
-  escaped_desktop_file=$(echo "$desktop_file" | sed 's/\\//\\\\/')
+  # Get the current favorites list
+  current_favorites=$(gsettings get org.gnome.shell favorite-apps)
 
   # Check if app is already in favorites
-  current_favorites=$(gsettings get org.gnome.shell favorite-apps)
-  if grep -q "'$escaped_desktop_file'" <<< "$current_favorites"; then
+  if echo "$current_favorites" | grep -q "$(basename "$desktop_file")"; then
     echo "$app_name is already in your favorites."
     return 0
   fi
 
   # Construct the new favorites list
-  new_favorites="$current_favorites, '$escaped_desktop_file'"
+  new_favorites=$(echo "$current_favorites" | sed "s/]/, '$(basename "$desktop_file")']/")
 
   # Update the favorites list using gsettings
   if ! gsettings set org.gnome.shell favorite-apps "$new_favorites"; then
