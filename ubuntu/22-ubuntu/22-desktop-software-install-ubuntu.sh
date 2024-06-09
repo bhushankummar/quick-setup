@@ -59,10 +59,11 @@ curl -L -O https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/
 sudo gdebi -n ./prime-tracker-linux-amd64.deb
 
 # Call the to add App into Favourite
-add_to_favorites "discord.desktop"
-add_to_favorites "chrome.desktop"
-add_to_favorites "code"
 add_to_favorites "prime-tracker-desktop"
+add_to_favorites "discord_discord"
+add_to_favorites "code_code"
+add_to_favorites "anydesk"
+add_to_favorites "google-chrome"
 
 # Cleanup
 sudo apt autoremove -y
