@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"streetsidesoftware.code-spell-checker",
+		"mikestead.dotenv",
+		"dbaeumer.vscode-eslint",
+		"vscode-icons-team.vscode-icons",
+		"foxundermoon.shell-format"
+	]
+}

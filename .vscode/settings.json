@@ -50,8 +50,6 @@
 	"editor.rulers": [
 		120
 	],
-	"editor.wordWrapColumn": 120,
-	"editor.wrappingStrategy": "simple",
 	"editor.codeActionsOnSave": {
 		"source.fixAll": "explicit",
 		"source.fixAll.eslint": "never"
@@ -65,7 +63,6 @@
 	"workbench.settings.useSplitJSON": true,
 	"workbench.settings.editor": "json",
 	"explorer.openEditors.visible": 0,
-	"editor.wordWrap": "on",
 	"editor.autoIndent": "none",
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
@@ -77,5 +74,7 @@
 		"source.fixAll.eslint": false
 	},
 	"eslint.enable": true,
-	"editor.wordWrap": "on"
+	"editor.wordWrap": "on",
+	"editor.wordWrap": "wordWrapColumn",
+	"editor.wordWrapColumn": 120,
 }
