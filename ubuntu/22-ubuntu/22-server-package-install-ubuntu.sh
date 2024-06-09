@@ -5,15 +5,18 @@ start=$(date +%s)
 
 # Function to display elapsed time
 display_elapsed_time() {
-    end=$(date +%s)
-    seconds=$((end - start))
-    elapsed_time=$(date -ud "@$seconds" +'%H hours %M minutes %S seconds')
-    echo "Total Time Taken: $elapsed_time"
+	end=$(date +%s)
+	seconds=$((end - start))
+	elapsed_time=$(date -ud "@$seconds" +'%H hours %M minutes %S seconds')
+	echo "Total Time Taken: $elapsed_time"
 }
 
 # Display installation start message
 echo "Thank you, we are installing for the Server"
 echo "Start Time: $(date)"
+
+sudo apt update -q -y && sudo apt upgrade -q -y
+sudo apt install curl -q -y
 
 # Install Docker CE
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
