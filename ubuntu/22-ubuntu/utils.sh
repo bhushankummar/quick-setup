@@ -20,13 +20,13 @@ add_to_favorites() {
   current_favorites=$(gsettings get org.gnome.shell favorite-apps)
 
   # Check if app is already in favorites
-  if echo "$current_favorites" | grep -q "$(basename "$desktop_file")"; then
+  if echo "$current_favorites" | grep -q "$(basename "$app_name")"; then
     echo "$app_name is already in your favorites."
     return 0
   fi
 
   # Construct the new favorites list
-  new_favorites=$(echo "$current_favorites" | sed "s/]/, '$(basename "$desktop_file")']/")
+  new_favorites=$(echo "$current_favorites" | sed "s/]/, '$(basename "$app_name")']/")
 
   # Update the favorites list using gsettings
   if ! gsettings set org.gnome.shell favorite-apps "$new_favorites"; then
