@@ -10,10 +10,10 @@ start=$(date +%s)
 
 # Function to display elapsed time
 display_elapsed_time() {
-    end=$(date +%s)
-    seconds=$((end - start))
-    elapsed_time=$(date -ud "@$seconds" +'%H hours %M minutes %S seconds')
-    echo "Total Time Taken: $elapsed_time"
+	end=$(date +%s)
+	seconds=$((end - start))
+	elapsed_time=$(date -ud "@$seconds" +'%H hours %M minutes %S seconds')
+	echo "Total Time Taken: $elapsed_time"
 }
 
 # Display installation start message
@@ -40,17 +40,13 @@ sudo add-apt-repository ppa:peterlevi/ppa -y
 curl -sL https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
-# Update repository and upgrade system
-sudo apt-get update -q -y
-sudo apt-get upgrade -q -y
-sudo apt-get dist-upgrade -q -y
+# Update and upgrade (combine in one command)
+sudo apt update -q -y && sudo apt upgrade -q -y && sudo apt dist-upgrade -q -y
 
 # Install required packages
 sudo apt-get install build-essential libssl-dev git fuse gdebi snapd anydesk variety variety-slideshow google-chrome-stable -q -y
-fix_anydesk()
-
-# Install Snap Packages
-sudo snap install code discord slack skype postman
+fix_anydesk
+sudo snap install code discord slack skype postman # Install Snap Packages
 
 # Install Visual Studio Code extensions
 sudo code --install-extension monokai.theme-monokai-pro-vscode christian-kohler.npm-intellisense christian-kohler.path-intellisense ms-vscode.vscode-typescript-tslint-plugin ritwickdey.LiveServer streetsidesoftware.code-spell-checker dbaeumer.vscode-eslint vscode-icons-team.vscode-icons mikestead.dotenv codezombiech.gitignore lacroixdavid1.vscode-format-context-menu mhutchie.git-graph tomoki1207.pdf
