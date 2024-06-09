@@ -8,7 +8,7 @@ display_elapsed_time() {
 	end=$(date +%s)
 	seconds=$((end - start))
 	elapsed_time=$(date -ud "@$seconds" +'%H hours %M minutes %S seconds')
-	echo "Total Time Taken: $elapsed_time"
+	echo "======================== Total Time Taken: $elapsed_time ======================== "
 }
 
 # Display installation start message

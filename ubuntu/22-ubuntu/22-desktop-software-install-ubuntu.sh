@@ -13,11 +13,11 @@ display_elapsed_time() {
 	end=$(date +%s)
 	seconds=$((end - start))
 	elapsed_time=$(date -ud "@$seconds" +'%H hours %M minutes %S seconds')
-	echo "Total Time Taken: $elapsed_time"
+	echo "======================== Total Time Taken: $elapsed_time ======================== "
 }
 
 # Display installation start message
-echo "Thank you, we are installing for the Desktop"
+echo "********************************* Thank you, we are installing for the Desktop. *********************************"
 echo "${green}Start Time: $(date)${reset}"
 
 # Warning message
@@ -46,7 +46,10 @@ sudo apt update -q -y && sudo apt upgrade -q -y && sudo apt dist-upgrade -q -y
 # Install required packages
 sudo apt-get install build-essential libssl-dev git fuse gdebi snapd anydesk variety variety-slideshow google-chrome-stable -q -y
 fix_anydesk
-sudo snap install code discord slack skype postman # Install Snap Packages
+
+# Install Snap Packages
+sudo snap install code --classic
+sudo snap install discord slack skype postman
 
 # Install Visual Studio Code extensions
 sudo code --install-extension monokai.theme-monokai-pro-vscode christian-kohler.npm-intellisense christian-kohler.path-intellisense ms-vscode.vscode-typescript-tslint-plugin ritwickdey.LiveServer streetsidesoftware.code-spell-checker dbaeumer.vscode-eslint vscode-icons-team.vscode-icons mikestead.dotenv codezombiech.gitignore lacroixdavid1.vscode-format-context-menu mhutchie.git-graph tomoki1207.pdf
