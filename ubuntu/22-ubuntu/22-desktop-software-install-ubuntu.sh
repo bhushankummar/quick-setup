@@ -74,12 +74,12 @@ sudo code --user-data-dir="~/.config/Code" --install-extension tomoki1207.pdf
 curl -L -O https://github.com/fullstacktechnologyllp/prime-tracker-app/releases/latest/download/prime-tracker-linux-amd64.deb
 sudo gdebi -n ./prime-tracker-linux-amd64.deb
 
-# Call the to add App into Favourite
-add_to_favorites "prime-tracker-desktop"
-add_to_favorites "discord_discord"
-add_to_favorites "code_code"
-add_to_favorites "anydesk"
-add_to_favorites "google-chrome"
+# Add App into Favourite
+add_to_favorites "prime-tracker-desktop.desktop"
+add_to_favorites "discord_discord.desktop"
+add_to_favorites "code_code.desktop"
+add_to_favorites "anydesk.desktop"
+add_to_favorites "google-chrome.desktop"
 
 # Cleanup
 sudo apt autoremove -y
